@@ -17,6 +17,9 @@ public class UserDaoImpl implements UserDao {
         user1.setCreate_time(new Date());
         user1.setSex("男");
         user1.setName("张三");
-        return user1;
+        if (user.getUser_id()==user1.getUser_id()&&user.getPassword().equals(user1.getPassword()))
+            return user1;
+        else
+            return null;
     }
 }

@@ -1,40 +1,54 @@
 package com.lyl.edusys.contraller;
 
+import com.lyl.edusys.frame.contraller.BaseContraller;
 import com.lyl.edusys.model.User;
-import com.lyl.edusys.service.UserService;
-import com.lyl.edusys.service.impl.UserServiceImpl;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class UserContraller extends HttpServlet {
+public class UserContraller extends BaseContraller {
 
     private static final long serialVersionUID = -8750121791535145193L;
-    UserService service = new UserServiceImpl();
-
+    User user=new User();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doPost(req, resp);
+    public void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+       int user_id=0;
+       try {
+           user_id=Integer.parseInt(req.getParameter("user_id"));
+       }catch (RuntimeException e){
+            e.printStackTrace();
+       }
+        System.out.println(user_id);
+       String password= req.getParameter("password");
+        System.out.println(password);
+       user.setUser_id(user_id);
+       user.setPassword(password);
+
+       user=userService.queryByUserIDAndPassword(user);
+       if (user!=null)
+           resp.sendRedirect("view/success.jsp");
+       else
+           resp.sendRedirect("index.jsp");
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int user_id = 0;
-        try {
-            Integer.parseInt(req.getParameter("user_id"));
-        } catch (RuntimeException e) {
+    public void delet(HttpServletRequest req, HttpServletResponse resp) {
 
-        }
+    }
 
-        String password = req.getParameter("password");
-        User user = service.queryByUserIDAndPassword(new User());
-        if (user_id == user.getUser_id() && password.equals(user.getPassword())) {
-            resp.sendRedirect("view/success.jsp");
-        } else {
-            resp.sendRedirect("index.jsp");
-        }
+    @Override
+    public void update(HttpServletRequest req, HttpServletResponse resp) {
+
+    }
+
+    @Override
+    public void query(HttpServletRequest req, HttpServletResponse resp) {
+
+    }
+
+    @Override
+    public void add(HttpServletRequest req, HttpServletResponse resp) {
+
     }
 }
