@@ -10,26 +10,27 @@ import java.io.IOException;
 public class UserContraller extends BaseContraller {
 
     private static final long serialVersionUID = -8750121791535145193L;
-    User user=new User();
+    User user = new User();
+
     @Override
     public void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-       int user_id=0;
-       try {
-           user_id=Integer.parseInt(req.getParameter("user_id"));
-       }catch (RuntimeException e){
+        int user_id = 0;
+        try {
+            user_id = Integer.parseInt(req.getParameter("user_id"));
+        } catch (RuntimeException e) {
             e.printStackTrace();
-       }
+        }
         System.out.println(user_id);
-       String password= req.getParameter("password");
+        String password = req.getParameter("password");
         System.out.println(password);
-       user.setUser_id(user_id);
-       user.setPassword(password);
+        user.setUser_id(user_id);
+        user.setPassword(password);
 
-       user=userService.queryByUserIDAndPassword(user);
-       if (user!=null)
-           resp.sendRedirect("view/success.jsp");
-       else
-           resp.sendRedirect("index.jsp");
+        user = userService.queryByUserIDAndPassword(user);
+        if (user != null)
+            resp.sendRedirect("view/success.jsp");
+        else
+            resp.sendRedirect("index.jsp");
     }
 
     @Override
@@ -43,8 +44,8 @@ public class UserContraller extends BaseContraller {
     }
 
     @Override
-    public void query(HttpServletRequest req, HttpServletResponse resp) {
-
+    public void query(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.sendRedirect("view/user/userList.jsp");
     }
 
     @Override

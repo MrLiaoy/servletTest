@@ -15,7 +15,6 @@
    * request.getServerPort()获取端口
    * request.getContextPath()获取项目路（项目名称）
    * */
-    System.out.println(basePah);
 %>
 <html>
 <head>
