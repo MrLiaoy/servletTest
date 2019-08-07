@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
+            + request.getServerPort() + path + "/";
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
@@ -44,8 +49,8 @@
                 <td>${user.login_name}</td>
                 <td>${user.password}</td>
                 <td>${user.create_time}</td>
-                <td><a href="#">删除</a></td>
-                <td><a href="#">修改</a></td>
+                <td><a href="<%=basePath%>userContraller?method=delet&user_id=${user.user_id}">删除</a></td>
+                <td><a href="<%=basePath%>userContraller?method=toUpdate&user_id=${user.user_id}">修改</a></td>
             </tr>
         </c:forEach>
     </table>

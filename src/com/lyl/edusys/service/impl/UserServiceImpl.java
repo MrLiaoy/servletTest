@@ -8,7 +8,8 @@ import com.lyl.edusys.service.UserService;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    UserDao userDao =new UserDaoImpl();
+    UserDao userDao = new UserDaoImpl();
+
     @Override
     public User queryByUserIDAndPassword(User user) {
 
@@ -23,5 +24,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryAll() {
         return userDao.queryAll();
+    }
+
+    @Override
+    public int deleteUserByUser_id(int user_id) {
+        return userDao.deleteUserByUser_id(user_id);
+    }
+
+    @Override
+    public int updateById(User user) {
+        return userDao.updateById(user);
+    }
+
+    @Override
+    public User queryById(int id) {
+        return userDao.queryById( id);
     }
 }

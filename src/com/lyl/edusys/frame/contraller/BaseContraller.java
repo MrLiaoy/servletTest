@@ -47,4 +47,5 @@ public abstract class BaseContraller extends HttpServlet {
     public abstract void query(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 
     public abstract void add(HttpServletRequest req, HttpServletResponse resp) throws IOException;
+    public abstract void toUpdate(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 }

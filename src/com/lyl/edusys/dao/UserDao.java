@@ -10,4 +10,10 @@ public interface UserDao {
     int addUser(User user);
 
     List<User> queryAll();
+
+    int deleteUserByUser_id(int user_id);
+
+    int updateById(User user);
+
+    User queryById(int id);
 }
