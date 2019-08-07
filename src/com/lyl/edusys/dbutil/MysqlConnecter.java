@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * @create: 2019-08-06 16:42
  **/
 public class MysqlConnecter {
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
             ResourceBundle rb=ResourceBundle.getBundle("jdbcconfig");
             Class.forName(rb.getString("driver"));

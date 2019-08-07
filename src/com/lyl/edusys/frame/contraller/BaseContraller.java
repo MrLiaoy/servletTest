@@ -21,6 +21,9 @@ public abstract class BaseContraller extends HttpServlet {
         //设置servlet编码，防止前端传到后台中文乱码
         req.setCharacterEncoding("UTF-8");
         String method = req.getParameter("method");
+        if (method==null&&method.trim().isEmpty()){
+            return;
+        }
         Class clas = this.getClass();
         try {
           Method method1 = clas.getMethod(method,HttpServletRequest.class,HttpServletResponse.class);
@@ -43,5 +46,5 @@ public abstract class BaseContraller extends HttpServlet {
 
     public abstract void query(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 
-    public abstract void add(HttpServletRequest req, HttpServletResponse resp);
+    public abstract void add(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 }

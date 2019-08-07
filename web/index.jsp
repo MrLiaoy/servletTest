@@ -18,15 +18,15 @@
 %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>首页登录</title>
 </head>
 <body>
 <center>
     <h1>欢迎来到xxx系统</h1>
     <hr>
-
+    <font color="red">${message}</font>
     <form action="<%=basePah%>userContraller?method=login" method="post">
-        账户：<input type="text" name="user_id"><br>
+        账户：<input type="text" name="login_name"><br>
         密码：<input type="password" name="password"><br>
         <input type="submit" value="登录"><input type="reset" value="重置">
 </center>

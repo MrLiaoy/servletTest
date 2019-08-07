@@ -8,4 +8,5 @@ public interface UserService {
     * */
     User queryByUserIDAndPassword(User user);
 
+    int addUser(User user);
 }

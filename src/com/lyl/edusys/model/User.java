@@ -4,35 +4,45 @@ import java.util.Date;
 
 public class User {
     /*
-    * user_id用户id唯一
-    * name 用户姓名
-    * age 用户年龄
-    * sex 用户性别
-    * hobby 用户爱好
-    * password 用户密码
-    * create_time 用户创建的时间
-    *
-    *
-    * */
+     * user_id用户id唯一
+     * name 用户姓名
+     * age 用户年龄
+     * sex 用户性别
+     * hobby 用户爱好
+     * password 用户密码
+     * create_time 用户创建的时间
+     *
+     *
+     * */
     private int user_id;
     private String name;
     private String age;
     private String sex;
     private String hobby;
     private String password;
+    private String login_name;
     private Date create_time;
 
     public User() {
     }
 
-    public User(int user_id, String name, String age, String sex, String hobby, String password, Date create_time) {
+    public User(int user_id, String name, String age, String sex, String hobby, String password, String login_name, Date create_time) {
         this.user_id = user_id;
         this.name = name;
         this.age = age;
         this.sex = sex;
         this.hobby = hobby;
         this.password = password;
+        this.login_name = login_name;
         this.create_time = create_time;
+    }
+
+    public String getLogin_name() {
+        return login_name;
+    }
+
+    public void setLogin_name(String login_name) {
+        this.login_name = login_name;
     }
 
     public int getUser_id() {

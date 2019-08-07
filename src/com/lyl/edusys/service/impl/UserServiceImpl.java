@@ -12,4 +12,9 @@ public class UserServiceImpl implements UserService {
 
         return userDao.queryByUserIDAndPassword(user);
     }
+
+    @Override
+    public int addUser(User user) {
+        return userDao.addUser(user);
+    }
 }

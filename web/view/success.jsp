@@ -23,6 +23,7 @@
 <body>
 <center>
     <h1>登陆成功</h1>
+    欢迎<font color="#ffe4c4">${user.name}</font>登录
     <hr>
 </center>
 <a href="<%=basePah%>/userContraller?method=query">查询用户</a>
