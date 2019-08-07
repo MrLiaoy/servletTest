@@ -27,7 +27,7 @@
 
     <form action="<%=basePah%>userContraller?method=login" method="post">
         账户：<input type="text" name="user_id"><br>
-        密码<input type="password" name="password"><br>
+        密码：<input type="password" name="password"><br>
         <input type="submit" value="登录"><input type="reset" value="重置">
 </center>
 </form>
