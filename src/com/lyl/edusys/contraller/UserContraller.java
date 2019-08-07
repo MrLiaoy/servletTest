@@ -6,6 +6,7 @@ import com.lyl.edusys.model.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class UserContraller extends BaseContraller {
 
@@ -44,6 +45,8 @@ public class UserContraller extends BaseContraller {
 
     @Override
     public void query(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<User> userList=userService.queryAll();
+        req.getSession().setAttribute("userlist",userList);
         resp.sendRedirect("view/user/userList.jsp");
     }
 
@@ -57,7 +60,6 @@ public class UserContraller extends BaseContraller {
         user1.setLogin_name(req.getParameter("login_name"));
         user1.setPassword(req.getParameter("password"));
         System.out.println(user1);
-
         int i=userService.addUser(user1);
         if (i==0){
             resp.sendRedirect("view/user/adduser.jsp");

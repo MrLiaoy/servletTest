@@ -5,6 +5,8 @@ import com.lyl.edusys.dao.impl.UserDaoImpl;
 import com.lyl.edusys.model.User;
 import com.lyl.edusys.service.UserService;
 
+import java.util.List;
+
 public class UserServiceImpl implements UserService {
     UserDao userDao =new UserDaoImpl();
     @Override
@@ -16,5 +18,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int addUser(User user) {
         return userDao.addUser(user);
+    }
+
+    @Override
+    public List<User> queryAll() {
+        return userDao.queryAll();
     }
 }

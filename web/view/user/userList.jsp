@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title></title>
@@ -20,7 +22,6 @@
 <center>
     <hr>
 
-    ${addSuccessMsg}
     <table border="1" width="80%">
         <tr>
             <td>用户ID</td>
@@ -33,30 +34,20 @@
             <td>创建时间</td>
             <td colspan="2">操作</td>
         </tr>
-        <tr>
-            <td>001</td>
-            <td>张培龙</td>
-            <td>23</td>
-            <td>保密</td>
-            <td>唱歌</td>
-            <td>zpl</td>
-            <td>111</td>
-            <td>2019-08-1</td>
-            <td><a href="#">删除</a></td>
-            <td><a href="#">修改</a></td>
-        </tr>
-        <tr>
-            <td>001</td>
-            <td>翠花</td>
-            <td>18</td>
-            <td>女</td>
-            <td>唱歌</td>
-            <td>zpl</td>
-            <td>111</td>
-            <td>2019-08-3</td>
-            <td><a href="#">删除</a></td>
-            <td><a href="#">修改</a></td>
-        </tr>
+        <c:forEach items="${userlist}" var="user">
+            <tr>
+                <td>${user.user_id}</td>
+                <td>${user.name}</td>
+                <td>${user.age}</td>
+                <td>${user.sex}</td>
+                <td>${user.hobby}</td>
+                <td>${user.login_name}</td>
+                <td>${user.password}</td>
+                <td>${user.create_time}</td>
+                <td><a href="#">删除</a></td>
+                <td><a href="#">修改</a></td>
+            </tr>
+        </c:forEach>
     </table>
 </center>
 
