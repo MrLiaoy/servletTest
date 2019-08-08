@@ -18,18 +18,32 @@
 %>
 <html>
 <head>
-    <title>首页登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>纸叠效果会员登录界面模板</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/body.css"/>
 </head>
 <body>
-<center>
-    <h1>欢迎来到xxx系统</h1>
-    <hr>
-    <font color="red">${message}</font>
-    <form action="<%=basePah%>userContraller?method=login" method="post">
-        账户：<input type="text" name="login_name"><br>
-        密码：<input type="password" name="password"><br>
-        <input type="submit" value="登录"><input type="reset" value="重置">
-</center>
-</form>
+<div class="container">
+    <section id="content">
+        <form action="<%=basePah%>userContraller?method=login" method="post">
+            <h1>会员登录</h1>
+            <div>
+                <input type="text" placeholder="邮箱" required="" id="username" name="login_name"/>
+            </div>
+            <div>
+                <input type="password" placeholder="密码" required="" id="password" name="password"/>
+            </div>
+            <div class="">
+                <span class="help-block u-errormessage">&nbsp;</span></div>
+            <div>
+                <!-- <input type="submit" value="Log in" /> -->
+                <input type="submit" value="登录" class="btn btn-primary" id="js-btn-login"/>
+            </div>
+        </form><!-- form -->
+
+    </section><!-- content -->
+</div>
+<!-- container -->
 </body>
 </html>
